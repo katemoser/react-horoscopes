@@ -16,10 +16,17 @@ import HoroscopeForm from "./HoroscopeForm";
 function HoroscopeApp(){
   const [horoscope, setHoroscope] = useState(null);
 
+  /** Generates horoscope for chosen sign */
+  async function generateHoroscope(formData){
+    console.log("generateHoroscope, formData =", formData);
+    const generatedHoroscope = await MarkovApi.getHoroscope(formData.sign);
+    setHoroscope(generatedHoroscope)
+  }
+
   return(
     <div className="HoroscopeApp">
       <HoroscopeDisplay horoscope={horoscope} />
-      <HoroscopeForm signs={["aries","taurus"]}/>
+      <HoroscopeForm handleSave={generateHoroscope}/>
     </div>
   )
 

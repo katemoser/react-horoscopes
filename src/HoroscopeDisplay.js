@@ -14,8 +14,7 @@ function HoroscopeDisplay({horoscope}){
 
   return (
     <div className="HoroscopeDisplay">
-      This is the horoscope display.
-      Your Horoscope is {horoscope}
+      {horoscope ? horoscope : "Please select your sign"}
     </div>
   )
 }
